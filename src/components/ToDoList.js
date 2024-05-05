@@ -1,9 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, json } from 'react-router-dom';
+import LogOut from './LogOut';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../utils/userSlice';
+import Login from './Login';
+import ShowLogoutButton from './ShowLogoutButton'
 
 const ToDoList = () => {
 
-    const [task, setTask] = useState([]);
+    const getLocalItems = ()=>{
+        let list = localStorage.getItem('lists');
+        console.log(list)
+
+        if(list){
+            return JSON.parse(localStorage.getItem('lists'))
+        }else{
+            return [];
+        }
+    }
+
+    const [task, setTask] = useState(getLocalItems());
     const [newTask, setNewTask] = useState("");
+
+   
 
     const handleInputChange = (event) => {
         setNewTask(event.target.value)
@@ -42,9 +61,21 @@ const ToDoList = () => {
         }
     }
 
+    const user = useSelector(selectUser);
+
+    useEffect(()=>{
+        localStorage.setItem('lists', JSON.stringify(task))
+    },[task])
+
     return (
+        <>
+        
         <div className='toDoContainer' >
-            <h2>To Do Buddy</h2>
+            <ShowLogoutButton />
+            <h2>To Do Buddy  </h2>
+            {/* {user.email}
+            {user.name}
+            {user.location} */}
             <p className='toDoMessage' >A simple app for making lists, made to keep your tasks safe.</p>
             <hr class="style-one" ></hr>
             <p className='pTagAddNewItem' >Add New Item</p>
@@ -97,6 +128,7 @@ const ToDoList = () => {
             </ol>
 
         </div>
+        </>
     )
 }
 
