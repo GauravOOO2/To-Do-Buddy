@@ -1,0 +1,2 @@
+export const WhetherAPI = 'c798a7ab5f2ddf761adb8974c7f62b68';
+// export const WhetherAPILink = `https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=c798a7ab5f2ddf761adb8974c7f62b68`

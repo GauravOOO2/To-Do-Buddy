@@ -5,11 +5,11 @@ import LogOut from './LogOut'
 import Login from './Login'
 const ShowLogoutButton = () => {
 
-    const user = useSelector(selectUser)
+    // const user = useSelector(selectUser)
 
     return (
         <div>
-            {user ? <LogOut /> : <Login />}
+            {/* {user ? <LogOut /> : <Login />} */}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import '../style/style.css'
 import LogOut from './LogOut';
 import { useDispatch } from 'react-redux';
@@ -11,6 +11,8 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [location, setLocation] = useState("");
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch()
 
@@ -25,48 +27,50 @@ const Login = () => {
             location: location,
             loggedIn: true,
         }
-            
         ))
+        navigate('/Body')
     }
+       
+
 
     return (
         <div className='loginContainer' >
-            <form onSubmit={(e) => handleSubmit(e)}>
-            <h3> Welcome Back</h3>
-            <div className='userNameDiv' >
+              <div className='headingContainer' >
+                <h3> Welcome Back</h3>
+                </div>
+            <div className='formParent' >
+            <form 
+            className='formContainer' 
+            onSubmit={(e) => handleSubmit(e)}>
+          
                 <label >Name</label>
                 <input type='text'
                     value={name}
                     onChange={(e)=> setName(e.target.value) }
                 />
-            </div>
+            
 
-            <div className='userNameDiv' >
                 <label >Email ID</label>
                 <input type='email'
                     value={email}
                     onChange={(e)=> setEmail(e.target.value) }
                 />
-            </div>
-            <div className='passwordDiv' >
                 <label> Password</label>
                 <input type='password'
                     value={password}
                     onChange={(e)=> setPassword(e.target.value) }
                 />
-            </div>
-            <div className='locationDiv' >
                 <label>Location</label>
                 <input type='text'
                     value={location}
                     onChange={(e)=> setLocation(e.target.value) }
 
                 />
-            </div>
             
             <button type='submit' >Login</button>
           
             </form>
+            </div>
         </div>
     )
 }
