@@ -1,70 +1,58 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# To-Do-Buddy
 
-## Available Scripts
+ A Complete ReactJS application.
+##  Made By [J Gaurav Varma](https://www.linkedin.com/in/gaurav-varm-oo21/)
 
-In the project directory, you can run:
+Task Tracker is a hybrid planner designed to streamline the management of your recurring activities. By merging the functionalities of a planner and a weather tracker, it provides a centralized platform for organizing all your tasks efficiently.
 
-### `yarn start`
+## More About the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Achieved Objective: Created a fundamental To-Do application designed to organize daily tasks effectively, ensuring users never overlook their responsibilities. 
+- Employed React Hooks for seamless rendering of task fields based on user input, enabling actions such as task deletion, addition, viewing, and adjusting priority by repositioning within the list. 
+- Implemented local storage to maintain task data and authentication status across browser sessions, enhancing data persistence. 
+-  Incorporated Redux for robust state management and asynchronous API fetching, ensuring smooth data retrieval and effective state handling, including authentication on the login page, securing the application from the outset.
+-  Successfully integrated weather display functionality for users needing to venture out to complete tasks. Employed simple CSS for comprehensive application styling, ensuring responsiveness and improving user experience. 
+- Overall, the application boasts multiple features and maintains smooth code flow across all components, offering comprehensive functionality and precise execution.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## What I used
+- ReactJS
+- CSS
+- Redux
+## Run Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone the project to run it locally 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+```bash
+  git clone https://github.com/GauravOOO2/To-Do-Buddy.git
+```
+Install all the necessary dependencies 
+```bash
+  npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Go to the project directory
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  cd To-Do-Buddy
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the server
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  npm start
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## tools used 
+- VS Code 
+## Screenshots
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![App Screenshot](https://gauravooo2.github.io/Gaurav_portfolio/assets/img/to-do-app.png)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![App Screenshot](https://gauravooo2.github.io/Gaurav_portfolio/assets/img/to-do.png)
