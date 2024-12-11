@@ -1,44 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Link, json } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from '../utils/userSlice';
-import Login from './Login';
-import ShowLogoutButton from './ShowLogoutButton'
-import { logOut } from '../utils/userSlice'
-import { updateWhetherData } from '../utils/whetherSlice'
-import { WhetherAPI } from '../utils/Constants'
-import { useNavigate } from 'react-router-dom';
+import '../style/style.css'
 
 
 
 const ToDoList = () => {
 
-    const getLocalItems = () => {
-        let list = localStorage.getItem('lists');
-        console.log(list)
-
-        if (list) {
-            return JSON.parse(localStorage.getItem('lists'))
-        } else {
-            return [];
-        }
-    }
-
-    const [task, setTask] = useState(getLocalItems());
+    const [task, setTask] = useState(0);
     const [newTask, setNewTask] = useState("");
 
-    console.log("Debug",task);
 
     const handleInputChange = (event) => {
         setNewTask(event.target.value)
 
-    }
-
-    const addTask = () => {
-        if (newTask.trim() !== "") {
-            setTask(t => [...t, newTask]);
-            setNewTask("");
-        }
     }
 
     const deleteTask = (index) => {
@@ -66,45 +39,6 @@ const ToDoList = () => {
         }
     }
 
-    // const user = useSelector(selectUser);
-
-    useEffect(() => {
-        localStorage.setItem('lists', JSON.stringify(task))
-    }, [task])
-
-    const navigate = useNavigate();
-
-    const dispatch = useDispatch()
-
-    const user = useSelector((store)=>store.user.user)
-    console.log(user,user.location);
-
-
-    const whetherData = useSelector((store)=>store.whether.whetherData)
-    console.log(whetherData,'debug')
-
-    
-    const search = async()=>{
-      const url = "https://api.openweathermap.org/data/2.5/weather?q="+user.location+"&units=Metric&appid="+WhetherAPI
-      console.log(url)
-        const data = await fetch(url)
-        const jsonData = await data.json()
-        if(jsonData?.weather[0]?.description){
-            dispatch(updateWhetherData(jsonData?.weather[0]?.description))
-        }
-        
-    }
-    
-    useEffect(()=>{
-      search()
-    },[])
-
-    const logoutEvent = ()=>{
-      dispatch(logOut())
-      navigate('/')
-
-    }
-    console.log(whetherData, whetherData.length);
 
     return (
         <div className='toDoParent' >
@@ -113,12 +47,7 @@ const ToDoList = () => {
            <div className='toDoContainer' >
                 <div className='HContainer' >
                 <h2>To Do Buddy  </h2>
-                
-                {
-                    whetherData&&<p>Weather Today: {whetherData}</p>
-                    
-                }
-                {/*  */}
+               
                 </div>
                 
                 <p className='toDoMessage' >A simple app for making lists, made to keep your tasks safe.</p>
@@ -134,9 +63,7 @@ const ToDoList = () => {
                         value={newTask}
                         onChange={handleInputChange}
                     />
-                    <button
-                        onClick={addTask}
-                    >Add Item!</button>
+                    <button>Add Item!</button>
                 </div>
                 </div>
 
@@ -151,7 +78,7 @@ const ToDoList = () => {
 
                                         <li key={index} >
                                             
-                                            <span className='text' > {task} </span>
+                                            <span className='text' ></span>
                                             <button
                                                 className='deleteTask'
                                                 onClick={() => deleteTask(index)}
@@ -186,9 +113,6 @@ const ToDoList = () => {
             </div>
            </div>
             <div className='buttonContainer' >
-        <button
-        className='btn'
-        onClick={logoutEvent} >Logout</button>
             </div>
         </div>
     )
